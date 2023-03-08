@@ -17,12 +17,12 @@ Bootstrap(app)
 # app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["SECRET_KEY"] = "213123123sdfgdrgerşierwlşiwüüü,,ü"
 
-uri = os.environ.get("DATABASE_URL", "sqlite:///ecommerce.db")
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+#uri = os.environ.get("DATABASE_URL", "sqlite:///ecommerce.db")
+#if uri.startswith("postgres://"):
+ #   uri = uri.replace("postgres://", "postgresql://", 1)
 
 # CONNECT DB
-app.config["SQLALCHEMY_DATABASE_URI"] = uri
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://doadmin:AVNS_7nz0lfQics5hLTQxMgz@ecommerce-do-user-13717700-0.b.db.ondigitalocean.com:25060/defaultdb"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -247,6 +247,6 @@ def delete_item(item_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=80, debug=True)
 
 
